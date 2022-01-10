@@ -1,0 +1,44 @@
+.score-card-rapper {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  overflow-y: scroll;
+  height: 500px;
+  overflow-y: scroll;
+}
+.score-card {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  width: 90%;
+  margin: 2px 20px;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+}
+.score-card-content-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0.1rem;
+}
+.Scoredata {
+  font-size: 1.1rem !important;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  color: #0e1b1be0;
+  padding-top: 0.1rem;
+}
+.scoreteamImage {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0px 0px;
+}
+.boldit h2 {
+  font-weight: 600 !important;
+}
