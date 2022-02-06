@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ballImage from "../assets/725e29b112f241f223437fbe8d0d299b.png";
 import Navbar from "./Navbar";
 import "../styles/Countries.css";
@@ -7,17 +7,20 @@ import axios from "axios";
 export default function Countries() {
   const [countrydata, setcountrydata] = useState([""]);
 
-  // Make a request for countries data fetch
-  axios
-    .get("https://murtuza-express-app.herokuapp.com/api/countries")
-    .then(function (response) {
-      // handle success
-      return setcountrydata(response.data); // setting state of component
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
+  useEffect(() => {
+    // Make a request for countries data fetch
+    axios
+      .get("https://murtuza-express-app.herokuapp.com/api/countries")
+      .then(function (response) {
+        // handle success
+        console.log("Calling..");
+        return setcountrydata(response.data); // setting state of component
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, countrydata == null);
 
   return (
     <div>

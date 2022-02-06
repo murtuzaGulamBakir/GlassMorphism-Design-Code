@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ballImage from "../assets/725e29b112f241f223437fbe8d0d299b.png";
 import Navbar from "./Navbar";
 import "../styles/Result.css";
@@ -6,17 +6,21 @@ import axios from "axios";
 export default function Result() {
   const [resultData, setresultData] = useState([""]);
 
-  // Make a request for result data fetch
+  useEffect(() => {
+     // Make a request for result data fetch
   axios
-    .get("https://murtuza-express-app.herokuapp.com/api/results") // hosted backend url
-    .then(function (response) {
-      // handle success
-      return setresultData(response.data); // setting state of component
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
+  .get("https://murtuza-express-app.herokuapp.com/api/results") // hosted backend url
+  .then(function (response) {
+    // handle success
+    console.log("Calling..")
+    return setresultData(response.data); // setting state of component
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  });
+  },resultData == null );
+ 
   return (
     <div>
       <div className="main">

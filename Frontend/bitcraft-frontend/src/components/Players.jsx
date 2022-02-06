@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ballImage from "../assets/725e29b112f241f223437fbe8d0d299b.png";
 import Navbar from "./Navbar";
 import "../styles/Players.css";
@@ -6,17 +6,20 @@ import axios from "axios";
 export default function Players() {
   const [playerData, setplayerData] = useState([""]);
 
-  // Make a request for player data fetch
-  axios
-    .get("https://murtuza-express-app.herokuapp.com/api/players") // hosted backend url
-    .then(function (response) {
-      // handle success
-      return setplayerData(response.data); // setting state of component
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
+  useEffect(() => {
+    // Make a request for player data fetch
+    axios
+      .get("https://murtuza-express-app.herokuapp.com/api/players") // hosted backend url
+      .then(function (response) {
+        // handle success
+        console.log("Calling..");
+        return setplayerData(response.data); // setting state of component
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, playerData == null);
 
   return (
     <div>

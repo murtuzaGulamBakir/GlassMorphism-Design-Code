@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ballImage from "../assets/725e29b112f241f223437fbe8d0d299b.png";
 import Navbar from "./Navbar";
 import "../styles/Score.css";
 import axios from "axios";
 export default function Result() {
   const [scoreData, setscoreData] = useState([""]);
-
-  // Make a request for scores data fetch
-  axios
-    .get("https://murtuza-express-app.herokuapp.com/api/scores") // hosted backend url
-    .then(function (response) {
-      // handle success
-      return setscoreData(response.data); // setting state of component
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
+  useEffect(() => {
+    // Make a request for scores data fetch
+    axios
+      .get("https://murtuza-express-app.herokuapp.com/api/scores") // hosted backend url
+      .then(function (response) {
+        // handle success
+        console.log("Calling..");
+        return setscoreData(response.data); // setting state of component
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, scoreData == null);
 
   return (
     <div>

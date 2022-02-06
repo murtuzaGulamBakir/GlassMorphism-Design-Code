@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ballImage from "../assets/725e29b112f241f223437fbe8d0d299b.png";
 import Navbar from "./Navbar";
 import axios from "axios";
@@ -7,17 +7,21 @@ import "../styles/Matches.css";
 export default function Matches() {
   const [matchesData, setmatchesData] = useState([""]);
 
-  // Make a request for matches data fetch
-  axios
-    .get("https://murtuza-express-app.herokuapp.com/api/matches") // hosted backend url
-    .then(function (response) {
-      // handle success
-      return setmatchesData(response.data); // setting state of component
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
+  useEffect(() => {
+    // Make a request for matches data fetch
+    axios
+      .get("https://murtuza-express-app.herokuapp.com/api/matches") // hosted backend url
+      .then(function (response) {
+        // handle success
+        console.log("Calling..");
+        return setmatchesData(response.data); // setting state of component
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, matchesData == null);
+
   return (
     <div>
       <div className="main">
