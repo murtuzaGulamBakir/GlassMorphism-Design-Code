@@ -20,7 +20,7 @@ export default function Matches() {
         // handle error
         console.log(error);
       });
-  }, matchesData == null);
+  }, []);
 
   return (
     <div>

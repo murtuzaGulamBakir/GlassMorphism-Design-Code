@@ -7,20 +7,20 @@ export default function Result() {
   const [resultData, setresultData] = useState([""]);
 
   useEffect(() => {
-     // Make a request for result data fetch
-  axios
-  .get("https://murtuza-express-app.herokuapp.com/api/results") // hosted backend url
-  .then(function (response) {
-    // handle success
-    console.log("Calling..")
-    return setresultData(response.data); // setting state of component
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  });
-  },resultData == null );
- 
+    // Make a request for result data fetch
+    axios
+      .get("https://murtuza-express-app.herokuapp.com/api/results") // hosted backend url
+      .then(function (response) {
+        // handle success
+        console.log("Calling..");
+        return setresultData(response.data); // setting state of component
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
       <div className="main">

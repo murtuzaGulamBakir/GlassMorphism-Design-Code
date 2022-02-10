@@ -20,7 +20,7 @@ export default function Countries() {
         // handle error
         console.log(error);
       });
-  }, countrydata == null);
+  }, []);
 
   return (
     <div>

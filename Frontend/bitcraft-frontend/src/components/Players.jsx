@@ -19,7 +19,7 @@ export default function Players() {
         // handle error
         console.log(error);
       });
-  }, playerData == null);
+  }, []);
 
   return (
     <div>

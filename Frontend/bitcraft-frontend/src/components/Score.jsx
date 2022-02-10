@@ -18,7 +18,7 @@ export default function Result() {
         // handle error
         console.log(error);
       });
-  }, scoreData == null);
+  }, []);
 
   return (
     <div>
